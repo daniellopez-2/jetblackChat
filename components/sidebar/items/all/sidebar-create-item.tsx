@@ -23,6 +23,7 @@ import { Tables, TablesInsert } from "@/supabase/types"
 import { ContentType } from "@/types"
 import { FC, useContext, useRef, useState } from "react"
 import { toast } from "sonner"
+import mammoth from "mammoth"; // 确保你已经安装了 mammoth
 
 interface SidebarCreateItemProps {
   isOpen: boolean
