@@ -132,63 +132,63 @@ export const useSelectFileHandler = () => {
         throw new Error("Unsupported file type")
       }
 
-      reader.onloadend = async function () {
-        try {
-          if (file.type.includes("image")) {
-            // Create a temp url for the image file
-            const imageUrl = URL.createObjectURL(file)
+      // reader.onloadend = async function () {
+      //   try {
+      //     if (file.type.includes("image")) {
+      //       // Create a temp url for the image file
+      //       const imageUrl = URL.createObjectURL(file)
 
-            // This is a temporary image for display purposes in the chat input
-            setNewMessageImages(prev => [
-              ...prev,
-              {
-                messageId: "temp",
-                path: "",
-                base64: reader.result, // base64 image
-                url: imageUrl,
-                file
-              }
-            ])
-          } else {
-            const createdFile = await createFile(
-              file,
-              {
-                user_id: profile.user_id,
-                description: "",
-                file_path: "",
-                name: file.name,
-                size: file.size,
-                tokens: 0,
-                type: simplifiedFileType
-              },
-              selectedWorkspace.id,
-              chatSettings.embeddingsProvider
-            )
+      //       // This is a temporary image for display purposes in the chat input
+      //       setNewMessageImages(prev => [
+      //         ...prev,
+      //         {
+      //           messageId: "temp",
+      //           path: "",
+      //           base64: reader.result, // base64 image
+      //           url: imageUrl,
+      //           file
+      //         }
+      //       ])
+      //     } else {
+      //       const createdFile = await createFile(
+      //         file,
+      //         {
+      //           user_id: profile.user_id,
+      //           description: "",
+      //           file_path: "",
+      //           name: file.name,
+      //           size: file.size,
+      //           tokens: 0,
+      //           type: simplifiedFileType
+      //         },
+      //         selectedWorkspace.id,
+      //         chatSettings.embeddingsProvider
+      //       )
 
-            setFiles(prev => [...prev, createdFile])
+      //       setFiles(prev => [...prev, createdFile])
 
-            setNewMessageFiles(prev =>
-              prev.map(item =>
-                item.id === "loading"
-                  ? {
-                      id: createdFile.id,
-                      name: createdFile.name,
-                      type: createdFile.type,
-                      file: file
-                    }
-                  : item
-              )
-            )
-          }
-        } catch (error) {
-          toast.error("Failed to upload.")
+      //       setNewMessageFiles(prev =>
+      //         prev.map(item =>
+      //           item.id === "loading"
+      //             ? {
+      //                 id: createdFile.id,
+      //                 name: createdFile.name,
+      //                 type: createdFile.type,
+      //                 file: file
+      //               }
+      //             : item
+      //         )
+      //       )
+      //     }
+      //   } catch (error) {
+      //     toast.error("Failed to upload.")
 
-          setNewMessageImages(prev =>
-            prev.filter(img => img.messageId !== "temp")
-          )
-          setNewMessageFiles(prev => prev.filter(file => file.id !== "loading"))
-        }
-      }
+      //     setNewMessageImages(prev =>
+      //       prev.filter(img => img.messageId !== "temp")
+      //     )
+      //     setNewMessageFiles(prev => prev.filter(file => file.id !== "loading"))
+      //   }
+      // }
     }
   }
 
