@@ -11,7 +11,7 @@ import { createAssistant, updateAssistant } from "@/db/assistants"
 import { createChat } from "@/db/chats"
 import { createCollectionFiles } from "@/db/collection-files"
 import { createCollection } from "@/db/collections"
-import { createFile } from "@/db/files"
+import { createFile, createDocXFile } from "@/db/files"
 import { createPreset } from "@/db/presets"
 import { createPrompt } from "@/db/prompts"
 import {
@@ -66,13 +66,38 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
 
       const { file, ...rest } = createState
 
-      const createdFile = await createFile(
-        file,
-        rest,
-        workspaceId,
-        selectedWorkspace.embeddings_provider as "openai" | "local"
-      )
+      const mimeType = file.type;
+      let createdFile;
 
+      if (mimeType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
+        // 处理 .docx 文件
+        const arrayBuffer = await file.arrayBuffer();
+        const result = await mammoth.extractRawText({ arrayBuffer });
+
+        // 创建 .docx 文件
+        createdFile = await createDocXFile(
+          result.value,
+          file,
+          {
+            user_id: profile.user_id,
+            description: "",
+            file_path: "",
+            name: file.name,
+            size: file.size,
+            tokens: 0,
+            type: "docx" // 假设 simplifiedFileType 就是 'docx'
+          },
+          workspaceId,
+          embeddingsProvider
+        );
+      } else {
+        const createdFile = await createFile(
+          file,
+          rest,
+          workspaceId,
+          selectedWorkspace.embeddings_provider as "openai" | "local"
+        )
+      }
       return createdFile
     },
     collections: async (
