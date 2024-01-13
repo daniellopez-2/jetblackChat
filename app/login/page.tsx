@@ -121,13 +121,13 @@ export default async function Login({
 
         {searchParams?.message && (
           <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-            {searchParams.message}
+            {searchParams?.message ? (
+              <span className="bg-foreground/10 text-foreground">{searchParams.message}</span>
+            ) : (
+              "If you don't have an account, please sign up."
+            )}
           </p>
         )}
-        // 添加一个静态的通知文本提示用户注册
-        <p className="text-center mt-2">
-          If you don't have an account, please sign up.
-        </p>
       </form>
     </div>
   )
