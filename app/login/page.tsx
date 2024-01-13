@@ -73,10 +73,9 @@ export default async function Login({
       return redirect("/login?message=Could not authenticate user")
     }
 
-    return redirect("/setup")
+    return redirect("/login?message=Check your inbox to activate your account.")
 
     // TODO: USE IF YOU WANT TO SEND EMAIL VERIFICATION, ALSO CHANGE TOML FILE
-    return redirect("/login?message=Check your inbox to activate your account.")
   }
 
   return (
@@ -125,7 +124,7 @@ export default async function Login({
           </p>
         )}
         <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-          If you don&apos;t have an account, please sign up.
+          Notice: Don&apos;t have an account, sign up.
         </p>
       </form>
     </div>
