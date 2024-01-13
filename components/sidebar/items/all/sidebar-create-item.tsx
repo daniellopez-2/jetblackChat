@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-
 import {
   Dialog,
   DialogContent,
@@ -12,7 +11,7 @@ import { createAssistant, updateAssistant } from "@/db/assistants"
 import { createChat } from "@/db/chats"
 import { createCollectionFiles } from "@/db/collection-files"
 import { createCollection } from "@/db/collections"
-import { createFile, createDocXFile } from "@/db/files"
+import { createFile } from "@/db/files"
 import { createPreset } from "@/db/presets"
 import { createPrompt } from "@/db/prompts"
 import {
@@ -24,7 +23,6 @@ import { Tables, TablesInsert } from "@/supabase/types"
 import { ContentType } from "@/types"
 import { FC, useContext, useRef, useState } from "react"
 import { toast } from "sonner"
-import mammoth from "mammoth"; // 确保你已经安装了 mammoth
 
 interface SidebarCreateItemProps {
   isOpen: boolean
@@ -55,7 +53,7 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const [creating, setCreating] = useState(false)
- 
+
   const createFunctions = {
     chats: createChat,
     presets: createPreset,
@@ -68,42 +66,13 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
 
       const { file, ...rest } = createState
 
-      const mimeType = file.type;
-      let createdFile;
-      const {
-        profile,
-        chatSettings,
-        // ... 其他变量
-    } = useContext(ChatbotUIContext)
-      if (mimeType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
-        // 处理 .docx 文件
-        const arrayBuffer = await file.arrayBuffer();
-        const result = await mammoth.extractRawText({ arrayBuffer });
+      const createdFile = await createFile(
+        file,
+        rest,
+        workspaceId,
+        selectedWorkspace.embeddings_provider as "openai" | "local"
+      )
 
-        // 创建 .docx 文件
-        createdFile = await createDocXFile(
-          result.value,
-          file,
-          {
-            user_id: profile.user_id,
-            description: "",
-            file_path: "",
-            name: file.name,
-            size: file.size,
-            tokens: 0,
-            type: "docx" // 假设 simplifiedFileType 就是 'docx'
-          },
-          workspaceId,
-          embeddingsProvider
-        );
-      } else {
-        const createdFile = await createFile(
-          file,
-          rest,
-          workspaceId,
-          selectedWorkspace.embeddings_provider as "openai" | "local"
-        )
-      }
       return createdFile
     },
     collections: async (
