@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+
 import {
   Dialog,
   DialogContent,
@@ -54,7 +55,7 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const [creating, setCreating] = useState(false)
-
+ 
   const createFunctions = {
     chats: createChat,
     presets: createPreset,
@@ -69,7 +70,11 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
 
       const mimeType = file.type;
       let createdFile;
-
+      const {
+        profile,
+        chatSettings,
+        // ... 其他变量
+    } = useContext(ChatbotUIContext)
       if (mimeType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
         // 处理 .docx 文件
         const arrayBuffer = await file.arrayBuffer();
