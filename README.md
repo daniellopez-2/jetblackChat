@@ -17,6 +17,10 @@ Then, return to the Apiskey login page and sign in. The web can upload and parse
 
 Check back soon for an official hosted version of Apiskey.
 
+## Official Desktop App
+
+Check back soon for an official desktop app for Chatbot UI. Just click download & start chatting - no setup required.
+
 ## Support
 
 ## Vercel Quickstart
