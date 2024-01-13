@@ -120,12 +120,9 @@ export default async function Login({
 
         {searchParams?.message && (
           <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-            {searchParams.message}
+            {searchParams?.message || "Notice: Don't have an account? Sign up now!"}
           </p>
         )}
-        <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-          Notice: Don&apos;t have an account, sign up.
-        </p>
       </form>
     </div>
   )
