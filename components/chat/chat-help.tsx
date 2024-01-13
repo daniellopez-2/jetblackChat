@@ -35,7 +35,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
           <div className="flex space-x-2">
             <Link
               className="cursor-pointer hover:opacity-50"
-              href="https://twitter.com/ChatbotUI"
+              href="https://twitter.com/Hikafeng"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -44,7 +44,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
 
             <Link
               className="cursor-pointer hover:opacity-50"
-              href="https://github.com/mckaywrigley/chatbot-ui"
+              href="https://github.com/apiskeyc/chatbot-ui"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -57,7 +57,7 @@ export const ChatHelp: FC<ChatHelpProps> = ({}) => {
 
             <Link
               className="cursor-pointer hover:opacity-50"
-              href="/help"
+              href="https://platform.apiskey.com"
               target="_blank"
               rel="noopener noreferrer"
             >
