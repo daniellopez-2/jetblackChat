@@ -115,7 +115,7 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
     }
 
     fetchStartingData()
-  }, [])
+  }, [router])
 
   useEffect(() => {
     if (!selectedWorkspace) {

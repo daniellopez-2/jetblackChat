@@ -124,10 +124,10 @@ export default async function Login({
             {searchParams.message}
           </p>
         )}
+        <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
+          If you don&apos;t have an account, please sign up.
+        </p>
       </form>
-      <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-        If you don't have an account, please sign up.
-      </p>
     </div>
   )
 }

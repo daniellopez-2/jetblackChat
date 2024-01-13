@@ -271,7 +271,7 @@ export default function SetupPage() {
         }
       }
     })()
-  }, [])
+  }, [router])
 
   if (loading) {
     return null

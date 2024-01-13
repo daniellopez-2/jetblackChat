@@ -24,7 +24,7 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
         setLoading(false)
       }
     })()
-  }, [])
+  }, [router])
 
   if (loading) {
     return null
