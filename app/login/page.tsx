@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { Brand } from "@/components/ui/brand"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+// import { Brand } from "@/components/ui/brand"
+// import { Button } from "@/components/ui/button"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
 import { createClient } from "@/lib/supabase/server"
 import { Database } from "@/supabase/types"
 import { createServerClient } from "@supabase/ssr"
 import { cookies, headers } from "next/headers"
 import { redirect } from "next/navigation"
+import LoginForm from './LoginForm'; // 引入客户端组件
 
 export default async function Login({
   searchParams
@@ -81,64 +82,7 @@ export default async function Login({
     // TODO: USE IF YOU WANT TO SEND EMAIL VERIFICATION, ALSO CHANGE TOML FILE
     // return redirect("/login?message=Check email to continue sign in process")
   }
-
   return (
-    <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
-      <form
-        className="animate-in text-foreground flex w-full flex-1 flex-col justify-center gap-2"
-        action={signIn}
-      >
-        <Brand />
-
-        <Label className="text-md mt-4" htmlFor="email">
-          Email
-        </Label>
-        <Input
-          className="mb-6 rounded-md border bg-inherit px-4 py-2"
-          name="email"
-          placeholder="Your Email Address"
-          required
-        />
-
-        <Label className="text-md" htmlFor="password">
-          Password
-        </Label>
-        <Input
-          className="mb-6 rounded-md border bg-inherit px-4 py-2"
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          required
-        />
-
-        <Button className="mb-2 rounded-md bg-blue-700 px-4 py-2 text-white">
-          Login
-        </Button>
-
-        <Button
-          formAction={signUp}
-          className="border-foreground/20 mb-2 rounded-md border px-4 py-2"
-          onClick={() => setAlertMessage('Check your inbox to activate your account.')}
-        >
-          Sign Up
-        </Button>
-        // 显示注册提示信息
-        {alertMessage && (
-          <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-            {alertMessage}
-          </p>
-        )}
-
-        // 提示用户如果没有账户需要先注册
-        <p className="text-center mt-2">
-          If you don't have an account, please <a href="#" onClick={signUp} className="text-blue-600">register</a>.
-        </p>
-        {searchParams?.message && (
-          <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-            {searchParams.message}
-          </p>
-        )}
-      </form>
-    </div>
-  )
+    <LoginForm signIn={signIn} signUp={signUp} />
+  );
 }
