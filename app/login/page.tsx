@@ -1,14 +1,12 @@
-import { useState } from 'react'
-// import { Brand } from "@/components/ui/brand"
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
+import { Brand } from "@/components/ui/brand"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { createClient } from "@/lib/supabase/server"
 import { Database } from "@/supabase/types"
 import { createServerClient } from "@supabase/ssr"
 import { cookies, headers } from "next/headers"
 import { redirect } from "next/navigation"
-import LoginForm from './LoginForm'; // 引入客户端组件
 
 export default async function Login({
   searchParams
@@ -52,7 +50,6 @@ export default async function Login({
 
     return redirect("/chat")
   }
-  const [alertMessage, setAlertMessage] = useState('');
 
   const signUp = async (formData: FormData) => {
     "use server"
@@ -75,14 +72,62 @@ export default async function Login({
     if (error) {
       return redirect("/login?message=Could not authenticate user")
     }
-    setAlertMessage('Check your inbox to activate your account.');
 
     return redirect("/setup")
 
     // TODO: USE IF YOU WANT TO SEND EMAIL VERIFICATION, ALSO CHANGE TOML FILE
-    // return redirect("/login?message=Check email to continue sign in process")
+    return redirect("/login?message=Check your inbox to activate your account.")
   }
+
   return (
-    <LoginForm signIn={signIn} signUp={signUp} />
-  );
+    <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
+      <form
+        className="animate-in text-foreground flex w-full flex-1 flex-col justify-center gap-2"
+        action={signIn}
+      >
+        <Brand />
+
+        <Label className="text-md mt-4" htmlFor="email">
+          Email
+        </Label>
+        <Input
+          className="mb-6 rounded-md border bg-inherit px-4 py-2"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+
+        <Label className="text-md" htmlFor="password">
+          Password
+        </Label>
+        <Input
+          className="mb-6 rounded-md border bg-inherit px-4 py-2"
+          type="password"
+          name="password"
+          placeholder="••••••••"
+          required
+        />
+
+        <Button className="mb-2 rounded-md bg-blue-700 px-4 py-2 text-white">
+          Login
+        </Button>
+
+        <Button
+          formAction={signUp}
+          className="border-foreground/20 mb-2 rounded-md border px-4 py-2"
+        >
+          Sign Up
+        </Button>
+
+        {searchParams?.message && (
+          <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
+            {searchParams.message}
+          </p>
+        )}
+        <p className="text-center mt-2">
+          If you don't have an account, please <a href="#" onClick={signUp} className="text-blue-600">register</a>.
+        </p>
+      </form>
+    </div>
+  )
 }
