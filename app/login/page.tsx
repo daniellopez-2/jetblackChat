@@ -11,7 +11,7 @@ import { redirect } from "next/navigation"
 export default async function Login({
   searchParams
 }: {
-  searchParams: { message: string }
+  searchParams: { message?: string }
 }) {
   const cookieStore = cookies()
   const supabase = createServerClient<Database>(
@@ -118,11 +118,9 @@ export default async function Login({
           Sign Up
         </Button>
 
-        {searchParams?.message && (
-          <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
-            {searchParams?.message || "Notice: Don't have an account? Sign up now!"}
-          </p>
-        )}
+        <p className="bg-foreground/10 text-foreground mt-4 p-4 text-center">
+          {searchParams?.message || "Notice: Don't have an account? Sign up now!"}
+        </p>
       </form>
     </div>
   )

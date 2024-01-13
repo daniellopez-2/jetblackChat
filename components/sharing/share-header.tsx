@@ -11,7 +11,7 @@ export const ShareHeader: FC<ShareHeaderProps> = ({ session }) => {
   return (
     <div className="flex justify-between">
       <Link
-        href="https://www.chatbotui.com"
+        href="https://www.apiskey.com"
         className="text-2xl font-bold hover:opacity-50"
       >
         Apiskey
