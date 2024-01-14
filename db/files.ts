@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase/browser-client"
 import { TablesInsert, TablesUpdate } from "@/supabase/types"
 import { toast } from "sonner"
 import { uploadFile } from "./storage/files"
+import mammoth from "mammoth"
 
 export const getFileById = async (fileId: string) => {
   const { data: file, error } = await supabase
@@ -71,8 +72,11 @@ export const createFileBasedOnExtension = async (
   // 判断文件类型并调用相应的函数
   if (fileExtension === 'docx') {
     // 假设对于docx文件，你需要将文件内容作为文本传递
-    const text = await file.text();
-    return createDocXFile(text, file, fileRecord, workspace_id, embeddingsProvider);
+    const arrayBuffer = await file.arrayBuffer()
+    const result = await mammoth.extractRawText({
+      arrayBuffer
+    })
+    return createDocXFile(result.value, file, fileRecord, workspace_id, embeddingsProvider);
   } else {
     // 对于其他文件类型，使用 createFile 函数
     return createFile(file, fileRecord, workspace_id, embeddingsProvider);
