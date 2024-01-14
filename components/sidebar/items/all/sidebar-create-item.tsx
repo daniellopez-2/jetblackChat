@@ -65,7 +65,6 @@ export const SidebarCreateItem: FC<SidebarCreateItemProps> = ({
       if (!selectedWorkspace) return
 
       const { file, ...rest } = createState
-    
       const createdFile = await createFileBasedOnExtension(
         file,
         rest,
