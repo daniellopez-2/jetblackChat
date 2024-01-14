@@ -32,7 +32,11 @@ export async function POST(req: Request) {
 
     switch (fileExtension) {
       case "docx":
+        console.log('Processing DOCX file');
+
         chunks = await processDocX(text)
+        console.log('DOCX file processed');
+
         break
       default:
         return new NextResponse("Unsupported file type, Not docx file", {
@@ -41,6 +45,7 @@ export async function POST(req: Request) {
     }
 
     let embeddings: any = []
+    console.log('Starting embeddings generation');
 
     if (embeddingsProvider === "openai") {
       const openai = new OpenAI({
@@ -56,6 +61,8 @@ export async function POST(req: Request) {
       embeddings = response.data.map((item: any) => {
         return item.embedding
       })
+      console.log('OpenAI embeddings generated');
+
     } else if (embeddingsProvider === "local") {
       const embeddingPromises = chunks.map(async chunk => {
         try {
@@ -64,6 +71,8 @@ export async function POST(req: Request) {
           console.error(`Error generating embedding for chunk: ${chunk}`, error)
           return null
         }
+        console.log('Local embeddings generated');
+
       })
 
       embeddings = await Promise.all(embeddingPromises)
@@ -83,8 +92,10 @@ export async function POST(req: Request) {
           ? ((embeddings[index] || null) as any)
           : null
     }))
+    console.log('Starting database upsert');
 
     await supabaseAdmin.from("file_items").upsert(file_items)
+    console.log('Database upsert completed');
 
     const totalTokens = file_items.reduce((acc, item) => acc + item.tokens, 0)
 
