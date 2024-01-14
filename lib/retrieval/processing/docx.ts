@@ -10,14 +10,16 @@ export const processDocX = async (text: string): Promise<FileItemChunk[]> => {
   })
   const splitDocs = await splitter.createDocuments([text])
 
-  // 使用Promise.all来并行处理chunks的生成
-  const chunkPromises = splitDocs.map(async (doc) => {
-    return {
+  let chunks: FileItemChunk[] = []
+
+  for (let i = 0; i < splitDocs.length; i++) {
+    const doc = splitDocs[i]
+
+    chunks.push({
       content: doc.pageContent,
       tokens: encode(doc.pageContent).length
-    };
-  });
+    })
+  }
 
-  const chunks: FileItemChunk[] = await Promise.all(chunkPromises);
-  return chunks;
+  return chunks
 }
