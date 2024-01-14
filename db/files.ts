@@ -57,6 +57,28 @@ export const getFileWorkspacesByFileId = async (fileId: string) => {
   return file
 }
 
+// Process File
+// 新建函数，根据文件后缀决定使用 createFile 或 createDocxFile
+export const createFileBasedOnExtension = async (
+  file: File,
+  fileRecord: TablesInsert<"files">,
+  workspace_id: string,
+  embeddingsProvider: "openai" | "local"
+) => {
+  // 获取文件的后缀名
+  const fileExtension = file.name.split('.').pop();
+
+  // 判断文件类型并调用相应的函数
+  if (fileExtension === 'docx') {
+    // 假设对于docx文件，你需要将文件内容作为文本传递
+    const text = await file.text();
+    return createDocXFile(text, file, fileRecord, workspace_id, embeddingsProvider);
+  } else {
+    // 对于其他文件类型，使用 createFile 函数
+    return createFile(file, fileRecord, workspace_id, embeddingsProvider);
+  }
+};
+
 // For non-docx files
 export const createFile = async (
   file: File,
