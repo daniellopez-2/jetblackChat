@@ -16,7 +16,7 @@ export const FinishStep: FC<FinishStepProps> = ({ displayName }) => {
         <ul>
           <li>We store the files you upload, API interactions, and conversation logs securely on Supabase.</li>
           <li>Should you choose to discontinue using Apiskey, you can request account deletion by contacting <a href="mailto:account@apiskey.com">account@apiskey.com</a>.</li>
-          <li>Accounts inactive for 14 days will be automatically deleted to conserve storage space.</li>
+          <li>Accounts inactive for 14 days will maybe automatically deleted to conserve storage space.</li>
         </ul>
 
         <h3>Security Measures</h3>
@@ -25,7 +25,6 @@ export const FinishStep: FC<FinishStepProps> = ({ displayName }) => {
           <li>Logs and source code access requires authentication by Vercel team members.</li>
           <li>Git Fork Protection is enabled to ensure pull requests are authorized by team members.</li>
           <li>We adhere to GDPR compliance with our Data Processing Addendum (DPA).</li>
-          <li>Organizations on higher-tier plans have access to our security questionnaire and SOC2 Type 2 report.</li>
           <li>HIPAA compliance add-ons are available for eligible plans.</li>
         </ul>
 
