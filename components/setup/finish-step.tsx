@@ -9,7 +9,7 @@ export const FinishStep: FC<FinishStepProps> = ({ displayName }) => {
     <div className="space-y-4">
       <div>
         <h2>Welcome to Apiskey</h2>
-        <p>Apiskey is the open-source AI chat application that's built for everyone. Leveraging the power of platforms like GitHub, Vercel, and Supabase, we offer an intuitive API that allows for seamless interactions with Language Learning Models (LLM). Our platform is founded on the chatbot-ui by mckaywrigley, and we ensure a secure, user-friendly experience for all our users.</p>
+        <p>Apiskey is the open-source AI chat application that&apos;s built for everyone. Leveraging the power of platforms like GitHub, Vercel, and Supabase, we offer an intuitive API that allows for seamless interactions with Language Learning Models (LLM). Our platform is founded on the chatbot-ui by mckaywrigley, and we ensure a secure, user-friendly experience for all our users.</p>
 
         <h3>Data Storage and Security</h3>
         <p>At Apiskey, we prioritize your security:</p>
@@ -20,7 +20,7 @@ export const FinishStep: FC<FinishStepProps> = ({ displayName }) => {
         </ul>
 
         <h3>Security Measures</h3>
-        <p>We've implemented robust security measures to protect your data:</p>
+        <p>We&apos;ve implemented robust security measures to protect your data:</p>
         <ul>
           <li>Logs and source code access requires authentication by Vercel team members.</li>
           <li>Git Fork Protection is enabled to ensure pull requests are authorized by team members.</li>
