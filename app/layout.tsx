@@ -36,7 +36,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>Apiskey | Convenient AIGC API Access</title>
-        <meta property="og:description" content="Apiskey.com offers convenient access to your AIGC API keys for seamless online integration and usage.">
       </head>
       <body className={inter.className}>
         <Providers attribute="class" defaultTheme="dark">
