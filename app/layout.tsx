@@ -35,16 +35,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Apiskey.com offers convenient access to your AIGC API keys for seamless online integration and usage.">
         <title>Apiskey | Convenient AIGC API Access</title>
-        <link rel="canonical" href="https://www.apiskey.com">
-        <meta property="og:title" content="Apiskey | Convenient AIGC API Access">
         <meta property="og:description" content="Apiskey.com offers convenient access to your AIGC API keys for seamless online integration and usage.">
-        <meta property="og:image" content="https://www.apiskey.com/readme/screenshot.png">
-        <meta property="og:url" content="https://www.apiskey.com">
-    </head>
+      </head>
       <body className={inter.className}>
         <Providers attribute="class" defaultTheme="dark">
           <Toaster richColors position="top-center" duration={2000} />
