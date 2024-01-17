@@ -15,7 +15,7 @@ export const FinishStep: FC<FinishStepProps> = ({ displayName }) => {
         <p>At Apiskey, we prioritize your security:</p>
         <ul>
           <li>We store the files you upload, API interactions, and conversation logs securely on Supabase.</li>
-          <li>Should you choose to discontinue using Apiskey, you can request account deletion by contacting <a href="mailto:account@apiskey.com">account@apiskey.com</a>.</li>
+          <li>Should you choose to discontinue using Apiskey, you can request account deletion by contacting <a href="mailto:support@apiskey.com">support@apiskey.com</a>.</li>
           <li>Accounts inactive for 14 days will maybe automatically deleted to conserve storage space.</li>
         </ul>
 
