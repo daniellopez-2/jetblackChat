@@ -33,6 +33,7 @@ export const CreateFile: FC<CreateFileProps> = ({ isOpen, onOpenChange }) => {
     ].join('_');
   }
   const [name, setName] = useState("")
+  const [isTyping, setIsTyping] = useState(false)
   const [description, setDescription] = useState("")
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const currentDate = formatDate(new Date())
@@ -79,6 +80,7 @@ export const CreateFile: FC<CreateFileProps> = ({ isOpen, onOpenChange }) => {
         } as TablesInsert<"files">
       }
       isOpen={isOpen}
+      isTyping={isTyping}
       onOpenChange={onOpenChange}
       renderInputs={() => (
         <>
@@ -102,17 +104,6 @@ export const CreateFile: FC<CreateFileProps> = ({ isOpen, onOpenChange }) => {
               maxLength={FILE_NAME_MAX}
             />
           </div>
-
-          {/* <div className="space-y-1">
-            <Label>Description (optional)</Label>
-
-            <Input
-              placeholder="File description..."
-              value={description}
-              onChange={e => setDescription(e.target.value)}
-              maxLength={FILE_DESCRIPTION_MAX}
-            />
-          </div> */}
         </>
       )}
     />
