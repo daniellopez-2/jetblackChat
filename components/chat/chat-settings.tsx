@@ -2,7 +2,7 @@ import { ChatbotUIContext } from "@/context/context"
 import { CHAT_SETTING_LIMITS } from "@/lib/chat-setting-limits"
 import useHotkey from "@/lib/hooks/use-hotkey"
 import { LLM_LIST } from "@/lib/models/llm/llm-list"
-import { IconFolderFilled } from "@tabler/icons-react"
+import { IconFolderCode } from "@tabler/icons-react"
 import { FC, useContext, useEffect, useRef } from "react"
 import { Button } from "../ui/button"
 import { ChatSettingsForm } from "../ui/chat-settings-form"
@@ -55,7 +55,7 @@ export const ChatSettings: FC<ChatSettingsProps> = ({}) => {
             {fullModel?.modelName || chatSettings.model}
           </div>
 
-          <IconFolderFilled size={28} />
+          <IconFolderCode size={24} />
         </Button>
       </PopoverTrigger>
 

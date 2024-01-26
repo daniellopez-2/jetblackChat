@@ -14,14 +14,13 @@ export default function HomePage() {
         <ChatbotUISVG theme={theme === "dark" ? "dark" : "light"} scale={0.3} />
       </div>
 
-      <div className="mt-2 text-4xl font-bold">Ghost Dev AI</div>
+      <div className="mt-2 text-4xl mb-4">GhostAI Dev</div>
 
       <Link
         className="mt-4 flex w-[200px] items-center justify-center rounded-md bg-blue-500 p-2 font-semibold"
         href="/chat"
       >
-        Start Chatting
-        <IconCircleArrowRightFilled className="ml-1" size={20} />
+        Go to App
       </Link>
     </div>
   )
