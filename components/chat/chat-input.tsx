@@ -3,7 +3,7 @@ import useHotkey from "@/lib/hooks/use-hotkey"
 import { LLM_LIST } from "@/lib/models/llm/llm-list"
 import { cn } from "@/lib/utils"
 import {
-  IconBolt,
+  IconTool,
   IconCirclePlus,
   IconPlayerStopFilled,
   IconSend
@@ -142,7 +142,7 @@ export const ChatInput: FC<ChatInputProps> = ({}) => {
               }
             >
               <div className="flex cursor-pointer items-center justify-center space-x-1 rounded-lg bg-purple-600 px-3 py-1 hover:opacity-50">
-                <IconBolt size={20} />
+                <IconTool size={20} />
 
                 <div>{tool.name}</div>
               </div>
