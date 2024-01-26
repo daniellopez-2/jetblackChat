@@ -121,7 +121,7 @@ export const AssistantItem: FC<AssistantItemProps> = ({ assistant }) => {
         ) : (
           <IconUserSquareRounded
             className="bg-primary text-secondary border-primary rounded border-[1px] p-1"
-            size={30}
+            size={28}
           />
         )
       }
