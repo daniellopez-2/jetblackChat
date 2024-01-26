@@ -9,8 +9,7 @@ import { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { cookies } from "next/headers"
 import { ReactNode } from "react"
-import { Analytics } from '@vercel/analytics/react';
-
+import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css"
 
@@ -25,8 +24,8 @@ interface RootLayoutProps {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Apiskey | Convenient AIGC API Access",
-    default: "Apiskey"
+    template: "%s | GhostAI Dev | Convenient AIGC API Access",
+    default: "GhostAI Dev"
   }
 }
 
