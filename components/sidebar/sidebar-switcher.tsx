@@ -2,11 +2,11 @@ import { ContentType } from "@/types"
 import {
   IconAdjustmentsHorizontal,
   IconTool,
-  IconBooks,
-  IconFile,
-  IconMessage,
-  IconPencil,
-  IconUserScan
+  IconDatabaseCog,
+  IconFileTypePdf,
+  IconBrandWechat,
+  IconPrompt,
+  IconUserCode
 } from "@tabler/icons-react"
 import { FC } from "react"
 import { TabsList } from "../ui/tabs"
@@ -14,7 +14,7 @@ import { WithTooltip } from "../ui/with-tooltip"
 import { ProfileSettings } from "../utility/profile-settings"
 import { SidebarSwitchItem } from "./sidebar-switch-item"
 
-export const SIDEBAR_ICON_SIZE = 28
+export const SIDEBAR_ICON_SIZE = 24
 
 interface SidebarSwitcherProps {
   onContentTypeChange: (contentType: ContentType) => void
@@ -27,7 +27,7 @@ export const SidebarSwitcher: FC<SidebarSwitcherProps> = ({
     <div className="flex flex-col justify-between border-r-2 pb-5">
       <TabsList className="bg-background grid h-[400px] grid-rows-7">
         <SidebarSwitchItem
-          icon={<IconMessage size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconBrandWechat size={SIDEBAR_ICON_SIZE} />}
           contentType="chats"
           onContentTypeChange={onContentTypeChange}
         />
@@ -37,22 +37,22 @@ export const SidebarSwitcher: FC<SidebarSwitcherProps> = ({
           onContentTypeChange={onContentTypeChange}
         />
         <SidebarSwitchItem
-          icon={<IconPencil size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconPrompt size={SIDEBAR_ICON_SIZE} />}
           contentType="prompts"
           onContentTypeChange={onContentTypeChange}
         />
         <SidebarSwitchItem
-          icon={<IconFile size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconFileTypePdf size={SIDEBAR_ICON_SIZE} />}
           contentType="files"
           onContentTypeChange={onContentTypeChange}
         />
         <SidebarSwitchItem
-          icon={<IconBooks size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconDatabaseCog size={SIDEBAR_ICON_SIZE} />}
           contentType="collections"
           onContentTypeChange={onContentTypeChange}
         />
         <SidebarSwitchItem
-          icon={<IconUserScan size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconUserCode size={SIDEBAR_ICON_SIZE} />}
           contentType="assistants"
           onContentTypeChange={onContentTypeChange}
         />
