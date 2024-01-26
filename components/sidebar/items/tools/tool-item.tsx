@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label"
 import { TextareaAutosize } from "@/components/ui/textarea-autosize"
 import { TOOL_DESCRIPTION_MAX, TOOL_NAME_MAX } from "@/db/limits"
 import { Tables } from "@/supabase/types"
-import { IconBolt } from "@tabler/icons-react"
+import { IconTool } from "@tabler/icons-react"
 import { FC, useState } from "react"
 import { SidebarItem } from "../all/sidebar-display-item"
 
@@ -23,7 +23,7 @@ export const ToolItem: FC<ToolItemProps> = ({ tool }) => {
       item={tool}
       isTyping={isTyping}
       contentType="tools"
-      icon={<IconBolt size={30} />}
+      icon={<IconTool size={28} />}
       updateState={{ name, description, url, schema }}
       renderInputs={() => (
         <>

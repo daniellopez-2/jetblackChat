@@ -1,7 +1,7 @@
 "use client"
 
 import { ChatbotUISVG } from "@/components/icons/chatbotui-svg"
-import { IconArrowRight } from "@tabler/icons-react"
+import { IconCircleArrowRightFilled } from "@tabler/icons-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 
@@ -21,7 +21,7 @@ export default function HomePage() {
         href="/chat"
       >
         Start Chatting
-        <IconArrowRight className="ml-1" size={20} />
+        <IconCircleArrowRightFilled className="ml-1" size={20} />
       </Link>
     </div>
   )

@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label"
 import { ChatbotUIContext } from "@/context/context"
 import { ASSISTANT_NAME_MAX } from "@/db/limits"
 import { Tables } from "@/supabase/types"
-import { IconRobotFace } from "@tabler/icons-react"
+import { IconUserSquareRounded } from "@tabler/icons-react"
 import Image from "next/image"
 import { FC, useContext, useEffect, useState } from "react"
 import profile from "react-syntax-highlighter/dist/esm/languages/hljs/profile"
@@ -119,7 +119,7 @@ export const AssistantItem: FC<AssistantItemProps> = ({ assistant }) => {
             height={30}
           />
         ) : (
-          <IconRobotFace
+          <IconUserSquareRounded
             className="bg-primary text-secondary border-primary rounded border-[1px] p-1"
             size={30}
           />
