@@ -1,9 +1,9 @@
 import { ContentType } from "@/types"
 import {
-  IconAdjustmentsHorizontal,
+  IconDeviceImacCode,
   IconTool,
   IconDatabaseCog,
-  IconFileTypePdf,
+  IconFileText,
   IconBrandWechat,
   IconPrompt,
   IconUserCode
@@ -14,7 +14,7 @@ import { WithTooltip } from "../ui/with-tooltip"
 import { ProfileSettings } from "../utility/profile-settings"
 import { SidebarSwitchItem } from "./sidebar-switch-item"
 
-export const SIDEBAR_ICON_SIZE = 24
+export const SIDEBAR_ICON_SIZE = 20
 
 interface SidebarSwitcherProps {
   onContentTypeChange: (contentType: ContentType) => void
@@ -32,7 +32,7 @@ export const SidebarSwitcher: FC<SidebarSwitcherProps> = ({
           onContentTypeChange={onContentTypeChange}
         />
         <SidebarSwitchItem
-          icon={<IconAdjustmentsHorizontal size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconDeviceImacCode size={SIDEBAR_ICON_SIZE} />}
           contentType="presets"
           onContentTypeChange={onContentTypeChange}
         />
@@ -42,7 +42,7 @@ export const SidebarSwitcher: FC<SidebarSwitcherProps> = ({
           onContentTypeChange={onContentTypeChange}
         />
         <SidebarSwitchItem
-          icon={<IconFileTypePdf size={SIDEBAR_ICON_SIZE} />}
+          icon={<IconFileText size={SIDEBAR_ICON_SIZE} />}
           contentType="files"
           onContentTypeChange={onContentTypeChange}
         />
