@@ -8,12 +8,22 @@ interface ChatbotUISVGProps {
 export const ChatbotUISVG: FC<ChatbotUISVGProps> = ({ theme, scale = 1 }) => {
   return (
     <svg
-      width={24 * scale}
-      height={24 * scale}
+      width={189 * scale}
+      height={194 * scale}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <rect
+        x="12.5"
+        y="12.5"
+        width="164"
+        height="127"
+        rx="37.5"
+        fill={`${theme === "dark" ? "#000" : "#fff"}`}
+        stroke={`${theme === "dark" ? "#fff" : "#000"}`}
+        strokeWidth="25"
+      />
       <path
         d="M20 7.5v9l-4 2.25l-4 2.25l-4 -2.25l-4 -2.25v-9l4 -2.25l4 -2.25l4 2.25z"
         stroke={theme === "dark" ? "#fff" : "#000"}

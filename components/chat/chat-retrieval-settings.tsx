@@ -1,5 +1,5 @@
 import { ChatbotUIContext } from "@/context/context"
-import { IconAdjustmentsHorizontal } from "@tabler/icons-react"
+import { IconBaselineDensityMedium } from "@tabler/icons-react"
 import { FC, useContext, useState } from "react"
 import { Button } from "../ui/button"
 import {
@@ -27,7 +27,7 @@ export const ChatRetrievalSettings: FC<ChatRetrievalSettingsProps> = ({}) => {
           side="top"
           display={<div>Adjust retrieval settings.</div>}
           trigger={
-            <IconAdjustmentsHorizontal
+            <IconBaselineDensityMedium
               className="cursor-pointer pt-[4px] hover:opacity-50"
               size={24}
             />

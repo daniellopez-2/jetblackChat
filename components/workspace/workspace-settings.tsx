@@ -138,7 +138,7 @@ export const WorkspaceSettings: FC<WorkspaceSettingsProps> = ({}) => {
           trigger={
             <IconSettings
               className="ml-3 cursor-pointer pr-[5px] hover:opacity-50"
-              size={32}
+              size={24}
               onClick={() => setIsOpen(true)}
             />
           }
