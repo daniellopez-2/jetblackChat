@@ -13,9 +13,7 @@ export const ShareHeader: FC<ShareHeaderProps> = ({ session }) => {
       <Link
         href="https://www.IndexBug.com"
         className="text-2xl font-bold hover:opacity-50"
-      >
-        GhostAI Dev
-      </Link>
+      ></Link>
 
       <Link href={session ? "/chat" : "/login"}>
         <Button size="sm">{session ? "App" : "Sign Up"}</Button>
