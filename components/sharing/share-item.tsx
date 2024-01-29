@@ -164,7 +164,7 @@ export const ShareItem: FC<ShareItemProps> = ({
                 display={
                   <div>
                     {!user?.id
-                      ? `Sign up for GhostAI Dev to continue this ${contentType.slice(
+                      ? `Sign up for AIChat Core to continue this ${contentType.slice(
                           0,
                           -1
                         )}.`

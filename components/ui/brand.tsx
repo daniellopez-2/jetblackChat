@@ -12,7 +12,7 @@ export const Brand: FC<BrandProps> = ({ theme = "dark" }) => {
   return (
     <Link
       className="flex cursor-pointer flex-col items-center hover:opacity-50"
-      href="https://www.IndexBug.com"
+      href="https://www.AIChatCore.com"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -20,7 +20,7 @@ export const Brand: FC<BrandProps> = ({ theme = "dark" }) => {
         <ChatbotUISVG theme={theme === "dark" ? "dark" : "light"} scale={0.3} />
       </div>
 
-      <div className="text-4xl font-bold tracking-wide">GhostAI Dev</div>
+      <div className="text-4xl font-bold tracking-wide"></div>
     </Link>
   )
 }

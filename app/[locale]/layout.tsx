@@ -24,8 +24,8 @@ interface RootLayoutProps {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | GhostAI Dev | Convenient AIGC API Access",
-    default: "GhostAI Dev"
+    template: "%s | AIChat Core | Convenient AIGC API Access",
+    default: "AIChat Core"
   }
 }
 
